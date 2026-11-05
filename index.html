@@ -44,7 +44,7 @@
 
         html, body {
             max-width: 100%;
-            overflow-x: hidden; /* ล็อคไม่ให้เลื่อนหลุดขอบข้าง */
+            overflow-x: hidden;
         }
 
         body {
@@ -122,7 +122,7 @@
             line-height: 1.35;
         }
 
-        /* 3. MAIN LAYOUT: ค่าเริ่มต้นสำหรับมือถือเป็น 1 คอลัมน์ ไม่บีบ ไม่ล้น */
+        /* 3. MAIN LAYOUT */
         .main-content-layout {
             display: flex;
             flex-direction: column;
@@ -133,7 +133,7 @@
 
         .services-column {
             width: 100%;
-            min-width: 0; /* ป้องกันกล่องบวมเกิน 100% */
+            min-width: 0;
         }
 
         .grid {
@@ -198,7 +198,7 @@
             font-size: 0.72rem;
         }
 
-        /* 4. SIDEBAR COLUMN: บนมือถือให้เรียงปุ่มเต็มความกว้าง */
+        /* 4. SIDEBAR COLUMN */
         .sidebar-column {
             width: 100%;
             min-width: 0;
@@ -206,7 +206,7 @@
 
         .sub-link-sidebar {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* บนมือถือจัดเป็นตารางปุ่มอัตโนมัติ */
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             gap: 6px;
             width: 100%;
         }
@@ -370,11 +370,10 @@
             border: none;
         }
 
-        /* RESPONSIVE: ปรับเฉพาะเมื่อหน้าจอกว้างขึ้น (แท็บเล็ต/คอมพิวเตอร์ >= 768px) */
+        /* RESPONSIVE (>= 768px) */
         @media (min-width: 768px) {
             .container { padding: 0 16px; }
             
-            /* แยก 2 คอลัมน์เฉพาะบนจอใหญ่ */
             .main-content-layout {
                 display: grid;
                 grid-template-columns: 74% 24%;
@@ -426,7 +425,8 @@
 </head>
 <body>
     <header>
-        <img src="logo-ksservice89-waterpump.png" alt="โลโก้ เคเอส เซอร์วิส 89 ช่างซ่อมปั๊มน้ำ" class="header-logo">
+        <!-- รูปโลโก้ Header -->
+        <img src="logo.png" alt="โลโก้ เคเอส เซอร์วิส 89 ช่างซ่อมปั๊มน้ำ" class="header-logo">
         <h1>เคเอส เซอร์วิส ซ่อมติดตั้งระบบปั๊มน้ำ ปั๊มสูบน้ำ</h1>
         <p>บริการซ่อม ติดตั้ง ปั๊มน้ำอาคาร โรงงาน คอนโด & งานระบบท่อประปา</p>
     </header>
@@ -436,15 +436,16 @@
             <h2>ช่างซ่อมและติดตั้งปั๊มน้ำ ปั๊มอาคารคอนโด บ้านพักอาศัย</h2>
             <p>บริการซ่อมและติดตั้งปั๊มน้ำ Booster Pump, Transfer Pump, ปั๊มจุ่ม, ไดโว่, ปั๊มสูบน้ำเสีย ตู้คอนโทรลปั๊มน้ำ สำหรับอาคาร คอนโด โรงงาน หมู่บ้าน และบ้านพักอาศัย</p>
         </div>
-        <!-- Main Layout: มือถือจะเรียงเดี่ยว จอคอมจะแยกซ้าย-ขวาอัตโนมัติ -->
+
         <div class="main-content-layout">
             <!-- ฝั่งซ้าย: งานบริการหลัก -->
             <div class="services-column">
                 <h2 class="section-title">งานซ่อมและติดตั้งปั๊มน้ำและปั๊มสูบน้ำ</h2>
                 <div class="grid">
+                    <!-- การ์ด 1: ปั๊มน้ำอาคาร โรงงาน (service-pump.jpg หรือ service-control-panel.jpg) -->
                     <div class="card">
                         <h3>🛠️บริการซ่อมและติดตั้งปั๊มน้ำ อาคาร โรงงาน</h3>
-                        <img src="booster-pump-repair-building-bangna.webp" alt="ช่างซ่อมและติดตั้งระบบ Booster Pump Transfer Pump อาคาร คอนโด โรงงาน" class="img-responsive" loading="lazy">
+                        <img src="service-pump.jpg" alt="ช่างซ่อมและติดตั้งระบบ Booster Pump Transfer Pump อาคาร คอนโด โรงงาน" class="img-responsive" loading="lazy">
                         <ul>
                             <li>ปั๊มน้ำอาคาร, คอนโด, โรงงาน, บ้านพักอาศัย</li>
                             <li>ซ่อมและติดตั้งปั๊มน้ำ (ระบบคอนโทรลปั๊มน้ำ)</li>
@@ -452,18 +453,22 @@
                             <li>ระบบ Transfer Pump (ปั๊มส่งน้ำขึ้นอาคาร)</li>
                         </ul>
                     </div>
+
+                    <!-- การ์ด 2: ปั๊มจุ่ม ไดโว่ (service-submersible.jpg) -->
                     <div class="card">
                         <h3>🌊 ระบบสูบน้ำ & ปั๊มจุ่ม ไดโว่ ปั๊มพญานาคไฟฟ้า</h3>
-                        <img src="submersible-pump-repair-drainage.webp" alt="บริการซ่อมปั๊มจุ่ม ไดโว่ ปั๊มสูบน้ำเสีย และท่อสูบน้ำพญานาค" class="img-responsive" loading="lazy">
+                        <img src="service-submersible.jpg" alt="บริการซ่อมปั๊มจุ่ม ไดโว่ ปั๊มสูบน้ำเสีย และท่อสูบน้ำพญานาค" class="img-responsive" loading="lazy">
                         <ul>
                             <li>ปั๊มสูบน้ำ, ปั๊มจุ่ม, ไดโว่</li>
                             <li>ปั๊มสูบน้ำเสียซ่อม (ระบบคอนโทรลปั๊มสูบน้ำ)</li>
                             <li>ซ่อม ท่อสูบน้ำพญานาค หมู่บ้าน โรงงาน</li>
                         </ul>
                     </div>
+
+                    <!-- การ์ด 3: งานระบบท่อประปา (service-pipe.jpg) -->
                     <div class="card">
                         <h3>🔧 งานระบบท่อประปา PVC, PPR</h3>
-                        <img src="pvc-ppr-pipe-welding-service.webp" alt="ช่างเดินระบบท่อประปา PVC ติดตั้งและเชื่อมความร้อนท่อ PPR อาคารโรงงาน" class="img-responsive" loading="lazy">
+                        <img src="service-pipe.jpg" alt="ช่างเดินระบบท่อประปา PVC ติดตั้งและเชื่อมความร้อนท่อ PPR อาคารโรงงาน" class="img-responsive" loading="lazy">
                         <ul>
                             <li>เดินระบบท่อประปา PVC</li>
                             <li>ติดตั้งและเชื่อมท่อ PPR (ท่อเชื่อมความร้อน)</li>
@@ -471,9 +476,11 @@
                             <li>เดินระบบท่อประปา อาคาร โรงงาน และบ้านพักอาศัย</li>
                         </ul>
                     </div>
+
+                    <!-- การ์ด 4: ปั๊มน้ำบ้านพักอาศัย (service-home.jpg) -->
                     <div class="card">
                         <h3>🏠 บริการซ่อมติดตั้งปั๊มน้ำบ้านพักอาศัย</h3>
-                        <img src="home-water-pump-repair-service.webp" alt="ช่างซ่อมปั๊มน้ำบ้านพักอาศัยใกล้ฉัน ซ่อมปั๊มน้ำรั่ว แก้ไขท่อประปา" class="img-responsive" loading="lazy">
+                        <img src="service-home.jpg" alt="ช่างซ่อมปั๊มน้ำบ้านพักอาศัยใกล้ฉัน ซ่อมปั๊มน้ำรั่ว แก้ไขท่อประปา" class="img-responsive" loading="lazy">
                         <ul>
                             <li>ช่างซ่อมปั๊มน้ำใกล้ฉัน ซ่อมปั๊มน้ำติดตั้งปั๊มน้ำ</li>
                             <li>แก้ไขประปารั่วใต้พื้น</li>
@@ -482,6 +489,7 @@
                     </div>
                 </div>
             </div>
+
             <!-- ฝั่งขวา: แถบบริการย่อย -->
             <div class="sidebar-column">
                 <h2 class="section-title">บริการอื่นๆ</h2>
@@ -529,20 +537,23 @@
                 <span class="tag">สมุทรปราการ</span>
             </div>
         </div>     
+
         <!-- Web Link & SEO Text -->
         <div class="web-btn-wrapper">
             <div class="seo-faint-text">
                 ช่างซ่อมปั๊มน้ำ พื้นที่ให้บริการ • ช่างปั๊มน้ำบางนา • ช่างปั๊มน้ำประเวศ • ช่างปั๊มน้ำอุดมสุข • ช่างปั๊มน้ำลาซาล • ช่างปั๊มน้ำแบริ่ง • ช่างปั๊มน้ำอ่อนนุช • ช่างปั๊มน้ำสวนหลวง • ช่างปั๊มน้ำพัฒนาการ • ช่างปั๊มน้ำกรุงเทพฯกรีฑา • ช่างปั๊มน้ำคลองตัน • ช่างปั๊มน้ำสุขุมวิท • ช่างปั๊มน้ำศรีนครินทร์
             </div>
             <a href="https://www.ksservice89.com" target="_blank" class="btn-web">
-                <img src="logo-ksservice89-waterpump.png" alt="Logo KS Service 89" class="btn-web-logo">
+                <!-- โลโก้ในปุ่มลิงก์หลัก -->
+                <img src="logo.png" alt="Logo KS Service 89" class="btn-web-logo">
                 <span>เว็บไซต์หลัก www.ksservice89.com</span>
             </a>
             <div class="seo-faint-text">
                 ช่างปั๊มน้ำลาดกระบัง • ช่างปั๊มน้ำบางจาก • ช่างปั๊มน้ำวัฒนา • ช่างปั๊มน้ำเอกมัย • ช่างปั๊มน้ำพระโขนง • ช่างปั๊มน้ำกิ่งแก้ว • ช่างปั๊มน้ำสำโรง • ช่างปั๊มน้ำราชาเทวะ • ช่างปั๊มน้ำราม 2 • ช่างปั๊มน้ำบางแก้ว • ช่างปั๊มน้ำหนามแดง • ช่างปั๊มน้ำบางพลี • ช่างปั๊มน้ำสมุทรปราการ • ช่างซ่อมปั๊มน้ำใกล้ฉัน
             </div>
         </div>
-        <!-- ปุ่มโทร และ ปุ่มไลน์ ขนาดเล็กด้านล่าง -->
+
+        <!-- ปุ่มโทร และ ปุ่มไลน์ ด้านล่าง -->
         <div class="btn-group-bottom">
             <a href="tel:0827127490" class="btn-bottom btn-call-bottom">📞 โทร: 082-712-7490</a>
             <a href="https://line.me/ti/p/EUJqXVHGGA" target="_blank" rel="noopener" class="btn-bottom btn-line-bottom">💬 ทักไลน์สอบถาม</a>
